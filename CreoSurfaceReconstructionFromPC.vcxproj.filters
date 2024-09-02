@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\AlgLib">
+      <UniqueIdentifier>{31bfb51e-dce3-491a-b914-74a07258ccad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NurbsLibSt">
+      <UniqueIdentifier>{d4934e5b-caad-4807-85ac-6395388d2440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AlgLib">
+      <UniqueIdentifier>{085c86c7-36a7-45c2-9563-66d8a3f3a875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NurbsLibSt">
+      <UniqueIdentifier>{bcd0be9f-2060-47e2-99f6-fd4e94471d89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AlgLib\alglibinternal.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\alglibmisc.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\ap.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\integration.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\interpolation.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\linalg.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\optimization.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\solvers.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\specialfunctions.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLib\stdafx.h">
+      <Filter>Header Files\AlgLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NurbsLibSt\Arrays.h">
+      <Filter>Header Files\NurbsLibSt</Filter>
+    </ClInclude>
+    <ClInclude Include="NurbsLibSt\framework.h">
+      <Filter>Header Files\NurbsLibSt</Filter>
+    </ClInclude>
+    <ClInclude Include="NurbsLibSt\MCLSEXST.h">
+      <Filter>Header Files\NurbsLibSt</Filter>
+    </ClInclude>
+    <ClInclude Include="NurbsLibSt\NurbsLibSt.h">
+      <Filter>Header Files\NurbsLibSt</Filter>
+    </ClInclude>
+    <ClInclude Include="NurbsLibSt\pch.h">
+      <Filter>Header Files\NurbsLibSt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AlgLib\alglibinternal.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\alglibmisc.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\ap.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\integration.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\interpolation.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\linalg.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\optimization.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\solvers.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLib\specialfunctions.cpp">
+      <Filter>Source Files\AlgLib</Filter>
+    </ClCompile>
+    <ClCompile Include="NurbsLibSt\CCurve2D.cpp">
+      <Filter>Source Files\NurbsLibSt</Filter>
+    </ClCompile>
+    <ClCompile Include="NurbsLibSt\LIN_SYS_EIGEN.CPP">
+      <Filter>Source Files\NurbsLibSt</Filter>
+    </ClCompile>
+    <ClCompile Include="NurbsLibSt\NURBS_API.CPP">
+      <Filter>Source Files\NurbsLibSt</Filter>
+    </ClCompile>
+    <ClCompile Include="bcrust.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSplineSketch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCreoPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCreoPointCloud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCreoSOR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDatumAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDatumPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDatumPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPatchOfPointCloud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPointCloud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSOR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Extrusion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralExtrusion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProSketchOnFlatSurface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RansacPrimitive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilityHelperClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
