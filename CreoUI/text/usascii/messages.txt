@@ -1,0 +1,124 @@
+-PointCloud
+Point Cloud Processing
+
+
+-LoadPoints
+Load Point Cloud
+
+
+-LoadPointsHelp
+Loads the point cloud
+
+
+-CreatePrimitives
+Create Primitives
+
+
+-normalsPCA
+Compute Normals
+
+
+-normalsPCAHelp
+Compute Normals with PCA method
+
+
+-SmoothPoints
+Smooth Point Cloud
+
+
+-SmoothPointsHelp
+Smooth The Point Cloud
+
+
+-WLOPSmoothPoints
+WLOP projection
+
+
+-WLOPSmoothPointsHelp
+Perform WLOP projection
+
+
+-JETSmoothPoints
+Jet smoothing
+
+
+-JETSmoothPointsHelp
+Perform Jet smoothing
+
+
+-CreateSOR
+Create SOR
+
+
+-CreateSORHelp
+Create the surface of revolution of the current point cloud
+
+
+-CreateRansacPrimitives
+Create Ransac Primitives
+
+
+-CreateRansacPrimitivesHelp
+Create Ransac Primitives on the current point cloud
+
+
+-SectionUI
+Create a Section in Point Cloud
+
+
+-SectionUIHelp
+Create a section in the Point Cloud
+
+
+-BestFitPlane
+Create a Best Fit Plane through the Point Cloud
+
+
+-BestFitPlaneHelp
+Create a best fit plane through the point cloud
+
+
+-SelectSOR
+Select SOR Points
+
+
+-SelectSORHelp
+Grab the selected SOR points
+
+
+-LabelPoints
+Label Points
+
+
+-LabelPointsHelp
+Label the points according to slippable motions
+
+
+-ComputeCurvatures
+Compute the curvatures
+
+
+-ComputeCurvaturesHelp
+Compute the curvatures
+
+
+-SavePointCloud
+Save the point cloud
+
+
+-SavePointCloudHelp
+Save the point cloud
+
+
+-TaubinSmooth
+Perform Taubin Smooth 
+
+
+-TaubinSmoothHelp
+Perform Taubin Smooth on Point Cloud
+
+
+
+
+
+
