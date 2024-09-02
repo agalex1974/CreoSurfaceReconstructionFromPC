@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\PrimitiveShapes">
+      <UniqueIdentifier>{6164b87f-1341-400d-9bed-af31c5c17cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{7814bc09-29ad-415a-a5e7-6c355aa905e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Parametrizations">
+      <UniqueIdentifier>{8e963096-aee0-4562-8d14-1d66c2ecd3c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\PrimitiveShapes">
+      <UniqueIdentifier>{424db603-c35a-4191-99a5-9b486de44a29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{0f8dda1f-733d-465c-8219-9fdaad072726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LevMar">
+      <UniqueIdentifier>{66aebc03-2882-46a6-b321-ce1b4eff77d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Parametrizations">
+      <UniqueIdentifier>{d5b3e402-d94c-40f7-81ff-f4c9ad30b0ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Candidate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PointCloud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RansacShapeDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="solve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapPrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="ConePrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="ConePrimitiveShapeConstructor.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="CylinderPrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="CylinderPrimitiveShapeConstructor.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanePrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanePrimitiveShapeConstructor.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="SpherePrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="SpherePrimitiveShapeConstructor.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="TorusPrimitiveShape.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="TorusPrimitiveShapeConstructor.cpp">
+      <Filter>Source Files\PrimitiveShapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cone.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Torus.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="LowStretchSphereParametrization.cpp">
+      <Filter>Source Files\Parametrizations</Filter>
+    </ClCompile>
+    <ClCompile Include="LowStretchTorusParametrization.cpp">
+      <Filter>Source Files\Parametrizations</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTorusParametrization.cpp">
+      <Filter>Source Files\Parametrizations</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Candidate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatNormalThreshPointCompatibilityFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Octree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptronRangeImageFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PointCloud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RansacShapeDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RebuildAACubeTreeStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RefCounted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreAACubeTreeStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreComputer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScorePrimitiveShapeVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCandidate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapPrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ConePrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ConePrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="CylinderPrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="CylinderPrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanePrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanePrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimitiveShapeVisitor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="SpherePrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="SpherePrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="TorusPrimitiveShape.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="TorusPrimitiveShapeConstructor.h">
+      <Filter>Header Files\PrimitiveShapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cone.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="LevMarFitting.h">
+      <Filter>Header Files\LevMar</Filter>
+    </ClInclude>
+    <ClInclude Include="LevMarFunc.h">
+      <Filter>Header Files\LevMar</Filter>
+    </ClInclude>
+    <ClInclude Include="LevMarLSWeight.h">
+      <Filter>Header Files\LevMar</Filter>
+    </ClInclude>
+    <ClInclude Include="LowStretchSphereParametrization.h">
+      <Filter>Header Files\Parametrizations</Filter>
+    </ClInclude>
+    <ClInclude Include="LowStretchTorusParametrization.h">
+      <Filter>Header Files\Parametrizations</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTorusParametrization.h">
+      <Filter>Header Files\Parametrizations</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

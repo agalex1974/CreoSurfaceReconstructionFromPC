@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugOpenMP|Win32">
+      <Configuration>DebugOpenMP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugOpenMP|x64">
+      <Configuration>DebugOpenMP</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseOpenMP|Win32">
+      <Configuration>ReleaseOpenMP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseOpenMP|x64">
+      <Configuration>ReleaseOpenMP</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{0C634703-9FC6-4744-A944-A00C53CD6042}</ProjectGuid>
+    <RootNamespace>PrimitiveShapesVC8</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.35004.147</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIMINGLEVEL0;_VERBOSE;WIN32;_DEBUG;_LIB;_USE_MATH_DEFINES;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/Debug/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIMINGLEVEL0;VERBOSE;WIN32;_DEBUG;_LIB;_USE_MATH_DEFINES;VERBOSE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/$(Platform)/$(Configuration)/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIMINGLEVEL1;TIMINGLEVEL0;WIN32;NDEBUG;_RELEASE;_LIB;_USE_MATH_DEFINES;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/Release/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIMINGLEVEL1;TIMINGLEVEL0;WIN32;NDEBUG;_RELEASE;_LIB;_USE_MATH_DEFINES;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/$(Platform)/$(Configuration)/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_RELEASE;TIMINGLEVEL1;DOPARALLEL;TIMINGLEVEL0;WIN32;NDEBUG;_LIB;_USE_MATH_DEFINES;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <OpenMPSupport>true</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/Release/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>.;../boost_1_79_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_RELEASE;TIMINGLEVEL1;DOPARALLEL;TIMINGLEVEL0;WIN32;NDEBUG;_LIB;_USE_MATH_DEFINES;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <OpenMPSupport>true</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/$(Platform)/Release/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DOPARALLEL;TIMINGLEVEL0;VERBOSE;WIN32;_DEBUG;_LIB;_USE_MATH_DEFINES;VERBOSE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <OpenMPSupport>true</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/Debug/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugOpenMP|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/GR -D_SCL_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DOPARALLEL;TIMINGLEVEL0;VERBOSE;WIN32;_DEBUG;_LIB;_USE_MATH_DEFINES;VERBOSE;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <OpenMPSupport>true</OpenMPSupport>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Lib>
+      <AdditionalDependencies>./MiscLib/$(Platform)/Debug/MiscLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)PrimitiveShapes.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="BitmapPrimitiveShape.cpp">
+      <ForceConformanceInForLoopScope Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'">true</ForceConformanceInForLoopScope>
+      <ForceConformanceInForLoopScope Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'">true</ForceConformanceInForLoopScope>
+      <ForceConformanceInForLoopScope Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ForceConformanceInForLoopScope>
+      <ForceConformanceInForLoopScope Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ForceConformanceInForLoopScope>
+    </ClCompile>
+    <ClCompile Include="Candidate.cpp" />
+    <ClCompile Include="Cone.cpp" />
+    <ClCompile Include="ConePrimitiveShape.cpp" />
+    <ClCompile Include="ConePrimitiveShapeConstructor.cpp" />
+    <ClCompile Include="Cylinder.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|Win32'">Full</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='ReleaseOpenMP|x64'">Full</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Full</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Full</Optimization>
+    </ClCompile>
+    <ClCompile Include="CylinderPrimitiveShape.cpp" />
+    <ClCompile Include="CylinderPrimitiveShapeConstructor.cpp" />
+    <ClCompile Include="LowStretchSphereParametrization.cpp" />
+    <ClCompile Include="LowStretchTorusParametrization.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PlanePrimitiveShape.cpp" />
+    <ClCompile Include="PlanePrimitiveShapeConstructor.cpp" />
+    <ClCompile Include="PointCloud.cpp" />
+    <ClCompile Include="RansacShapeDetector.cpp" />
+    <ClCompile Include="SimpleTorusParametrization.cpp" />
+    <ClCompile Include="solve.cpp" />
+    <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="SpherePrimitiveShape.cpp" />
+    <ClCompile Include="SpherePrimitiveShapeConstructor.cpp" />
+    <ClCompile Include="Torus.cpp" />
+    <ClCompile Include="TorusPrimitiveShape.cpp" />
+    <ClCompile Include="TorusPrimitiveShapeConstructor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BasePrimitiveShape.h" />
+    <ClInclude Include="basic.h" />
+    <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="BitmapPrimitiveShape.h" />
+    <ClInclude Include="Candidate.h" />
+    <ClInclude Include="Cone.h" />
+    <ClInclude Include="ConePrimitiveShape.h" />
+    <ClInclude Include="ConePrimitiveShapeConstructor.h" />
+    <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="CylinderPrimitiveShape.h" />
+    <ClInclude Include="CylinderPrimitiveShapeConstructor.h" />
+    <ClInclude Include="FlatNormalThreshPointCompatibilityFunc.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="IndexIterator.h" />
+    <ClInclude Include="LevMarFitting.h" />
+    <ClInclude Include="LevMarFunc.h" />
+    <ClInclude Include="LevMarLSWeight.h" />
+    <ClInclude Include="LowStretchSphereParametrization.h" />
+    <ClInclude Include="LowStretchTorusParametrization.h" />
+    <ClInclude Include="Octree.h" />
+    <ClInclude Include="PerceptronRangeImageFile.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="PlanePrimitiveShape.h" />
+    <ClInclude Include="PlanePrimitiveShapeConstructor.h" />
+    <ClInclude Include="PointCloud.h" />
+    <ClInclude Include="PrimitiveShape.h" />
+    <ClInclude Include="PrimitiveShapeConstructor.h" />
+    <ClInclude Include="PrimitiveShapeVisitor.h" />
+    <ClInclude Include="RansacShapeDetector.h" />
+    <ClInclude Include="RebuildAACubeTreeStrategy.h" />
+    <ClInclude Include="RefCounted.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ScoreAACubeTreeStrategy.h" />
+    <ClInclude Include="ScoreComputer.h" />
+    <ClInclude Include="ScorePrimitiveShapeVisitor.h" />
+    <ClInclude Include="ShapeCandidate.h" />
+    <ClInclude Include="SimpleTorusParametrization.h" />
+    <ClInclude Include="Sphere.h" />
+    <ClInclude Include="SpherePrimitiveShape.h" />
+    <ClInclude Include="SpherePrimitiveShapeConstructor.h" />
+    <ClInclude Include="Torus.h" />
+    <ClInclude Include="TorusPrimitiveShape.h" />
+    <ClInclude Include="TorusPrimitiveShapeConstructor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
