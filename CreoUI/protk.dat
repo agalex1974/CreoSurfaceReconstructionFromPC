@@ -1,0 +1,7 @@
+name Pareametric_Design
+startup dll
+exec_file D:\Dev\Coding\SOR\x64\Release\SOR.dll
+text_dir D:\Dev\Coding\SOR\x64\Release
+allow_stop true
+delay_start false
+end
