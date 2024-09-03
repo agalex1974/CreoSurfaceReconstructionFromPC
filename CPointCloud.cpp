@@ -1,15 +1,19 @@
-//#include <mkl.h>
+//#include <lapacke.h>
 #include <cstdio>
 #include <cstdlib>
 #include <map>
-#include "CPointCloud.h"
+
 #include "NurbsLibSt.h"
 #include <iostream>
-//#include <boost/math/distributions/normal.hpp>
+#include <boost/math/distributions/normal.hpp>
 #include <numeric>
 #include <boost/random/normal_distribution.hpp>
 #include <boost/random/variate_generator.hpp>
 #include <boost/random/mersenne_twister.hpp>
+#include "CPointCloud.h"
+
+#include <openblas/cblas.h>
+#include <lapacke.h>
 
 void CPointCloud::createUmbrellaFromTriangulation(std::vector<std::map<int, UmbrellaElement>>& umbrellas) const
 {
@@ -470,12 +474,12 @@ void CPointCloud::FindPrincipalAxes(CMatrix<double>& mat, char zIndex) const
 	m = 3;
 	k = this->GetSize();
 	int n = 3;
-	A = (double*)mkl_malloc(m * k * sizeof(double), 64);
-	C = (double*)mkl_malloc(m * n * sizeof(double), 64);
+	A = (double*)malloc(m * k * sizeof(double));
+	C = (double*)malloc(m * n * sizeof(double));
 	if (A == NULL || C == NULL) {
 		printf("\n ERROR: Can't allocate memory for matrices. Aborting... \n\n");
-		mkl_free(A);
-		mkl_free(C);
+		free(A);
+		free(C);
 		return;
 	}
 	double n_inv = 1.0 / sqrt(this->GetSize());
@@ -489,7 +493,7 @@ void CPointCloud::FindPrincipalAxes(CMatrix<double>& mat, char zIndex) const
 	}
 	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasTrans,
 		m, n, k, alpha, A, k, A, k, beta, C, n);
-	MKL_INT lda = n, info;
+	int lda = n, info;
 	/* Local arrays */
 	double w[3];
 	/* Solve eigenproblem */
@@ -533,19 +537,15 @@ void CPointCloud::FindPrincipalAxes(CMatrix<double>& mat, char zIndex) const
 			mat(indexSet[j], i) = C[j + i * 3];
 		}
 	}
-	FILE* file = fopen("RotationMatrixPCA.txt", "w");
-	fprintf(file, "%lf %lf %lf\n", mat(0,0), mat(0,1), mat(0,2));
-	fprintf(file, "%lf %lf %lf\n", mat(1, 0), mat(1, 1), mat(1, 2));
-	fprintf(file, "%lf %lf %lf\n", mat(2, 0), mat(2, 1), mat(2, 2));
-	fclose(file);
+	
 	auto res = Mult(mat, PointToVector(bc));
 	bc = VectorToPoint(res);
 	mat(0, 3) = -bc[0];
 	mat(1, 3) = -bc[1];
 	mat(2, 3) = -bc[2];
 	mat(3, 3) = 1.0;
-	mkl_free(A);
-	mkl_free(C);
+	free(A);
+	free(C);
 }
 
 bool CPointCloud::sortFunction(sortElement element1, sortElement element2)
@@ -672,87 +672,6 @@ void CPointCloud::scaleToUnity(CVector<CPointEx3D>& points)
 	}
 }
 
-
-std::shared_ptr<CMatrix<double>> CPointCloud::getSlippableVectors(const CPointEx3D& bc) const
-{
-	//auto bc = FindBaryCenter();
-	CVector<CPointEx3D> crossPoints(GetSize());
-	std::shared_ptr<CMatrix<double>> slippableVectors;
-	int count = 0;
-	for (int i = 0; i < GetSize(); i++)
-	{
-		crossPoints[i] = (*this)[i].first - bc;	
-	}
-	scaleToUnity(crossPoints);
-	for (int i = 0; i < GetSize(); i++)
-	{
-		crossPoints[i] = cross(crossPoints[i], (*this)[i].second);
-	}
-
-	double* A, * C;
-	int m, k;
-	double alpha = 1.0, beta = 0.0;
-	m = 6;
-	k = GetSize();
-	int n = 6;
-	A = (double*)mkl_malloc(m * k * sizeof(double), 64);
-	C = (double*)mkl_malloc(m * n * sizeof(double), 64);
-	if (A == NULL || C == NULL) {
-		printf("\n ERROR: Can't allocate memory for matrices. Aborting... \n\n");
-		mkl_free(A);
-		mkl_free(C);
-		return nullptr;
-	}
-	double n_inv = 1.0 / sqrt(this->GetSize());
-#pragma omp parallel for
-	for (int j = 0; j < k; j++)
-	{
-		A[j + 0 * k] = crossPoints[j][0];
-		A[j + 1 * k] = crossPoints[j][1];
-		A[j + 2 * k] = crossPoints[j][2];
-		A[j + 3 * k] = (*this)[j].second[0];
-		A[j + 4 * k] = (*this)[j].second[1];
-		A[j + 5 * k] = (*this)[j].second[2];
-	}
-
-	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasTrans,
-		m, n, k, alpha, A, k, A, k, beta, C, n);
-	MKL_INT lda = n, info;
-	
-	double w[6];
-	
-	info = LAPACKE_dsyev(LAPACK_ROW_MAJOR, 'V', 'U', n, C, lda, w);
-	
-	if (info > 0) {
-		printf("The algorithm failed to compute eigenvalues.\n");
-		exit(1);
-	}
-	
-	count = 0;
-	double eps = 1e-10;
-	while (w[5] / (w[count++] + eps) > 400){}
-	count--;
-	if (count > 0) {
-		FILE* file = fopen("eigen_values.txt", "w");
-		for (int i = 0; i < count; i++)
-		{
-			fprintf(file, "%lf ", w[i]);
-		}
-		fclose(file);
-		slippableVectors = std::make_shared<CMatrix<double>>(6, count);
-		for (int dimCount = 0; dimCount < 6; dimCount++)
-		{
-			for (int vectorCount = 0; vectorCount < count; vectorCount++)
-			{
-				(*slippableVectors)(dimCount, vectorCount) = C[vectorCount + dimCount * 6];
-			}
-		}
-	}
-	mkl_free(A);
-	mkl_free(C);
-	return slippableVectors;
-}
-
 CPointEx3D CPointCloud::GetNormalizedPerpendicularVectorToVector(const CPointEx3D& inVector)
 {
 	double max = fabs(inVector[0]);
@@ -813,78 +732,6 @@ CDoubleMatrix CPointCloud::CreatePatchLocalCoordinateSystem(const CPointEx3D& p,
 	return transformationMatrix;
 }
 
-std::pair<double, double> CPointCloud::GetCurvaturesOfLocalPatch(const CPointEx3D& p, const CPointEx3D& n, const CPointCloud& pc, 
-	CPointEx3D& maximumDirection, CPointEx3D& minimumDirection)
-{
-	CPointEx3D Xu, Xv;
-	auto transformationMatrix = CreatePatchLocalCoordinateSystem(p, n, Xu, Xv);
-	CPointCloud pcTransformed(pc.GetSize());
-	for (int i = 0; i < pc.GetSize(); i++)
-	{
-		pcTransformed[i].first  = VectorToPoint(Mult(transformationMatrix, PointToVector(pc[i].first)));
-		pcTransformed[i].second = VectorToPoint(Mult(transformationMatrix, PointToVector(pc[i].second, false)));
-	}
-	CDoubleMatrix U(3 * pc.GetSize(), 7);
-	CDoubleMatrix d(3 * pc.GetSize(), 1);
-	int count = 0;
-	for (int i = 0; i < 3 * pc.GetSize(); i += 3)
-	{
-		double xi = pcTransformed[count].first[0], yi = pcTransformed[count].first[1], zi = pcTransformed[count].first[2];
-		double ai = pcTransformed[count].second[0], bi = pcTransformed[count].second[1], ci = pcTransformed[count++].second[2];
-		if (fabs(ci) < 1e-8) ci = 1e-8;
-		double ki = 2. / (xi * xi + yi * yi);
-		U(i, 0) = ki * 0.5 * xi * xi;
-		U(i, 1) = ki * xi * yi;
-		U(i, 2) = ki * 0.5 * yi * yi;
-		U(i, 3) = ki * xi * xi * xi;
-		U(i, 4) = ki * xi * xi * yi;
-		U(i, 5) = ki * xi * yi * yi;
-		U(i, 6) = ki * yi * yi * yi;
-		U(i + 1, 0) = ki * xi;
-		U(i + 1, 1) = ki * yi;
-		U(i + 1, 2) = 0.0;
-		U(i + 1, 3) = 3.0 * ki * xi * xi;
-		U(i + 1, 4) = 2.0 * ki * xi * yi;
-		U(i + 1, 5) = ki * yi * yi;
-		U(i + 1, 6) = 0.0;
-		U(i + 2, 0) = 0.0;
-		U(i + 2, 1) = ki * xi;
-		U(i + 2, 2) = ki * yi;
-		U(i + 2, 3) = 0.0;
-		U(i + 2, 4) = ki * xi * xi;
-		U(i + 2, 5) = 2.0 * ki * xi * yi;
-		U(i + 2, 6) = 3.0 * ki * yi * yi;
-		d(i, 0) = ki * zi;
-		d(i + 1, 0) = -ki * ai / ci;
-		d(i + 2, 0) = -ki * bi / ci;
-	}
-	LIN_SYS_MKL::SolveLeastSquares(U, d);
-	double W[4] = {d[0], d[1], d[1], d[2]};
-	MKL_INT lda = 2, info;
-	/* Local arrays */
-	double l[2];
-	/* Solve eigenproblem */
-	info = LAPACKE_dsyev(LAPACK_ROW_MAJOR, 'V', 'U', 2, W, lda, l);
-	/* Check for convergence */
-	if (info > 0) {
-		printf("The algorithm failed to compute eigenvalues.\n");
-		exit(1);
-	}
-	minimumDirection = W[0] * Xu + W[2] * Xv;
-	maximumDirection = W[1] * Xu + W[3] * Xv;
-	CPointEx3D nframe = cross(maximumDirection, minimumDirection);
-	if (dot(nframe, n) < 0)
-	{
-		std::swap(l[0], l[1]);
-		l[0] = -l[0];
-		l[1] = -l[1];
-		CPointEx3D temp = maximumDirection;
-		maximumDirection = minimumDirection;
-		minimumDirection = maximumDirection;
-	}
-	return { l[1], l[0] };
-}
-
 std::tuple<double, double, double> CPointCloud::PerformPCAOnPatch(const CPointEx3D& p, const CVector<CPointEx3D>& patch, CPointEx3D& normal)
 {
 	std::vector<double> d(patch.GetSize());
@@ -909,12 +756,12 @@ std::tuple<double, double, double> CPointCloud::PerformPCAOnPatch(const CPointEx
 	int m = 3;
 	int k = patch.GetSize();
 	int n = 3;
-	double* A = (double*)mkl_malloc(m * k * sizeof(double), 64);
-	double* C = (double*)mkl_malloc(m * n * sizeof(double), 64);
+	double* A = (double*)malloc(m * k * sizeof(double));
+	double* C = (double*)malloc(m * n * sizeof(double));
 	if (A == NULL || C == NULL) {
 		printf("\n ERROR: Can't allocate memory for matrices. Aborting... \n\n");
-		mkl_free(A);
-		mkl_free(C);
+		free(A);
+		free(C);
 		exit(0);
 	}
 	double k_inv = 1.0 / sqrt(patch.GetSize());
@@ -928,13 +775,13 @@ std::tuple<double, double, double> CPointCloud::PerformPCAOnPatch(const CPointEx
 	}
 	cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasTrans,
 		m, n, k, alpha, A, k, A, k, beta, C, n);
-	MKL_INT lda = n, info;
+	int lda = n, info;
 	/* Local arrays */
 	double l[3];
 	/* Solve eigenproblem */
 	info = LAPACKE_dsyev(LAPACK_ROW_MAJOR, 'V', 'U', n, C, lda, l);
 	normal = CPointEx3D(C[0], C[3], C[6]);
-	mkl_free(A);
-	mkl_free(C);
+	free(A);
+	free(C);
 	return std::make_tuple(l[0], l[1], l[2]);
 }

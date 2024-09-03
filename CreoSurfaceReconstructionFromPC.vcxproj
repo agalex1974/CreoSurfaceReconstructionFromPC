@@ -60,6 +60,7 @@
     <ClCompile Include="Extrusion.cpp" />
     <ClCompile Include="GeneralExtrusion.cpp" />
     <ClCompile Include="GuiInterface.cpp" />
+    <ClCompile Include="lapackTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NurbsLibSt\CCurve2D.cpp" />
     <ClCompile Include="NurbsLibSt\LIN_SYS_EIGEN.CPP" />
@@ -169,9 +170,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NOMINMAX;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING;_HAS_AUTO_PTR_ETC=1;CGAL_LINKED_WITH_TBB;BUILD_DLL_EXPORTS;UNICODE;PROE_PROJ_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ADD_;HAVE_LAPACK_CONFIG_H;LAPACK_COMPLEX_STRUCTURE;WIN32;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_SILENCE_CXX17_OLD_ALLOCATOR_MEMBERS_DEPRECATION_WARNING;_HAS_AUTO_PTR_ETC=1;CGAL_LINKED_WITH_TBB;BUILD_DLL_EXPORTS;UNICODE;PROE_PROJ_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.;./tbb/include;$(PROTOOL_SRC)\includes;./Software v1.1;./boost_1_79_0;./AlgLib;./NurbsLibSt;./spectra-0.8.1/include;./eigen-3.4.0;.\CGAL-5.6.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;./lapack/include;./OpenBlas/include;./tbb/include;$(PROTOOL_SRC)\includes;./Software v1.1;./boost_1_79_0;./AlgLib;./NurbsLibSt;./spectra-0.8.1/include;./eigen-3.4.0;.\CGAL-5.6.1\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

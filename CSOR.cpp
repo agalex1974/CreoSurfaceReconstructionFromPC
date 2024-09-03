@@ -1,8 +1,9 @@
 #include "CSOR.h"
-#include <mkl.h>
 #include <math.h>
 #include <algorithm>
 #include <execution>
+#include <openblas/cblas.h>
+#include <lapacke.h>
 
 using namespace alglib;
 
@@ -196,20 +197,20 @@ double CSOR::FindBestRigidTransformation(const barycentricinterpolant& p)
 	}
 	auto mp = CPointCloud::FindBaryCenter(sorPnts);
 	auto mx = CPointCloud::FindBaryCenter(modelPnts);
-	double* P, *X, *C;
+	double* P, * X, * C;
 	int m, k;
 	double alpha = 1.0, beta = 0.0;
 	m = 3;
 	k = sorPnts.GetSize();
 	int n = 3;
-	P = (double*)mkl_malloc(m * k * sizeof(double), 64);
-	X = (double*)mkl_malloc(m * k * sizeof(double), 64);
-	C = (double*)mkl_malloc(m * n * sizeof(double), 64);
+	P = (double*)malloc(m * k * sizeof(double));
+	X = (double*)malloc(m * k * sizeof(double));
+	C = (double*)malloc(m * n * sizeof(double));
 	if (P == NULL || X == NULL || C == NULL) {
 		printf("\n ERROR: Can't allocate memory for matrices. Aborting... \n\n");
-		mkl_free(P);
-		mkl_free(X);
-		mkl_free(C);
+		free(P);
+		free(X);
+		free(C);
 		exit(0);
 	}
 	double n_inv = 1.0 / sqrt(sorPnts.GetSize());
@@ -237,9 +238,9 @@ double CSOR::FindBestRigidTransformation(const barycentricinterpolant& p)
 		trace += C[i + 3 * i];
 	}
 	for (int i = 0; i < 3; i++) LL(i, i) -= trace;
-	mkl_free(P);
-	mkl_free(X);
-	mkl_free(C);
+	free(P);
+	free(X);
+	free(C);
 	double delta[3];
 	delta[0] = A[2 + 3 * 1];
 	delta[1] = A[0 + 3 * 2];
@@ -249,7 +250,7 @@ double CSOR::FindBestRigidTransformation(const barycentricinterpolant& p)
 					 delta[1], LL(1,0), LL(1, 1), LL(1, 2),
 					 delta[2], LL(2,0), LL(2, 1), LL(2, 2) };
 	n = 4;
-	MKL_INT lda = 4, info;
+	int lda = 4, info;
 	/* Local arrays */
 	double w[4];
 	/* Solve eigenproblem */
