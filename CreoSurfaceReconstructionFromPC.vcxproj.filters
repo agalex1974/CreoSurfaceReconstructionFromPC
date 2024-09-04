@@ -134,9 +134,6 @@
     <ClCompile Include="CDatumPoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CPatchOfPointCloud.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CPointCloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

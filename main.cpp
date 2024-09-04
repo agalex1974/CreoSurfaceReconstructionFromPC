@@ -10,10 +10,7 @@
 #include <ctime>
 #include <chrono>
 
-#include "BestPlaneFitInterface.h"
 #include "GuiInterface.h"
-#include "SectionGUI.h"
-#include "TaubinDialog.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,8 +45,6 @@ std::shared_ptr<CCreoPointCloud> spointCloud;
 std::shared_ptr<CCreoSOR> sor;
 CCreoPointCloud* pointCloud;
 GuiInterface* gui;
-SectionGUI* sectionGUI;
-BestPlaneFitInterface* bpfGUI;
 
 void on_point_cloud_load()
 {
@@ -93,137 +88,6 @@ void on_sor_create()
 	}
 }
 
-void label_points()
-{
-	if (pointCloud)
-	{
-		//std::vector<std::vector<int>> regions;
-		//pointCloud->SegmentPointCloud(regions);
-		//pointCloud->ComputeNormalsWithPCA();
-		//pointCloud->SmoothPointCloud();
-		//pointCloud->ComputeNormalsWithPCA();
-		//pointCloud->SmoothPointCloudCGALBilateral();
-		spointCloud = spointCloud->sampleUniformly();
-	}	
-}
-
-void select_points_for_sor_creation()
-{
-	if (spointCloud)
-	{
-		std::set<int> selectionIndexes;
-		spPointCloud selectedPointCloud = pointCloud->pointCloudFromSelection(selectionIndexes);
-		spointCloud->computePrincipalCurvatures();
-		if (selectedPointCloud->GetSize() == 1)
-		{
-			std::set<int> indexes;
-			auto patch = pointCloud->GetPointsWithinRadiusFromPoint((*selectedPointCloud)[0].first, 7.5, indexes, *selectionIndexes.begin());
-			CPointEx3D max, min;
-			auto curvatures = CPointCloud::GetCurvaturesOfLocalPatch((*selectedPointCloud)[0].first, (*selectedPointCloud)[0].second, *patch, max, min);
-			double k1 = curvatures.first;
-			double k2 = curvatures.second;
-			double c = sqrt(0.5 * (k1 * k1 + k2 * k2));
-			FILE* file = fopen("curvatures.txt", "w");
-			fprintf(file, "%lf %lf %lf\n", k1, k2, c);
-			fclose(file);
-			//auto slippableMatrix = selectedPointCloud->getSlippableVectors(pointCloud->FindBaryCenter());
-			/*auto slippableMatrix = selectedPointCloud->getSlippableVectors(selectedPointCloud->FindBaryCenter());
-			//auto slippableMatrix = selectedPointCloud->getSlippableVectors(CPointEx3D(0, 0, 0));
-			if (slippableMatrix)
-			{
-				FILE* file = fopen("slippableMatrix.txt", "w");
-				for (int i = 0; i < slippableMatrix->GetCols(); i++)
-				{
-					for (int j = 0; j < slippableMatrix->GetRows(); j++)
-					{
-						fprintf(file, "%lf ", (*slippableMatrix)(j, i));
-					}
-					fprintf(file, "\n");
-				}
-				fclose(file);
-			}*/
-		}
-	}
-}
-
-void computerNormalsWithPCA()
-{
-	if (pointCloud) {
-		pointCloud->ComputeNormalsWithPCA();
-		//pointCloud->SmoothPointCloudCGALBilateral();
-		//pointCloud->savePointCloud("BilateralSmooth.xyz");
-	}
-	
-}
-
-void denoise_points()
-{
-	if (spointCloud)
-	{
-		//pointCloud->computeCGALPrincipalCurvatures();
-		pointCloud->SmoothPointCloudCGALBilateral();
-		//pointCloud->bilateral_iterative(15, 0.05, 0.05, 0.65);
-		pointCloud->savePointCloud("FeatureSensitiveBilateral.xyz");
-		//spointCloud = spointCloud->sampleUniformlyByUpsampling();
-		//spointCloud->SmoothPointCloud();
-		//pointCloud = spointCloud.get();
-	}
-}
-
-void wlop_denoise_points()
-{
-	if (spointCloud)
-	{
-		spointCloud = pointCloud->wlop();
-		pointCloud = spointCloud.get();
-		pointCloud->ComputeNormalsWithPCA();
-		pointCloud->savePointCloud("WLOP.xyz");
-	}
-}
-
-void jet_denoise_points()
-{
-	if (spointCloud)
-	{
-		spointCloud = pointCloud->SmoothPointCloud();
-		pointCloud = spointCloud.get();
-		pointCloud->ComputeNormalsWithPCA();
-		pointCloud->savePointCloud("JetSmooth.xyz");
-	}
-}
-
-void compute_curvatures()
-{
-	if (spointCloud && spointCloud->hasNormals()) {
-		spointCloud->computeCGALPrincipalCurvatures();
-		//spointCloud->GetTaubinCurvatures();
-		//spointCloud->CreateMesh();
-		//spointCloud->createMeshTriangular();
-		//spointCloud->smooth_iterative(4, 0.7);
-		//spointCloud->save_smoothed_tringulation();
-		//spointCloud->savePointCloud("smoothedPointCloud.xyz");
-	}
-}
-
-void save_point_cloud()
-{
-	if (spointCloud)
-	{
-		if (!spointCloud->hasNormals())
-		{
-			spointCloud->ComputeNormalsWithPCA();
-		}
-		spointCloud->savePointCloud("savedModel.xyz", true);
-		spointCloud->savePointCloud("savedModel.pts", false);
-	}
-}
-void uniform_sample()
-{
-	if (spointCloud)
-	{
-		 spointCloud = spointCloud->sampleUniformly();
-	}
-}
 int main()
 {
 	
@@ -239,19 +103,9 @@ int user_initialize(
 	ProError status;
 	uiCmdCmdId cmd_id_load_point_cloud;
 	uiCmdCmdId cmd_id_create_sor;
-	uiCmdCmdId cmd_id_normals_pca;
-	uiCmdCmdId cmd_id_smooth_points;
-	uiCmdCmdId cmd_id_wlop_smooth_points;
-	uiCmdCmdId cmd_id_jet_smooth_points;
 	uiCmdCmdId cmd_id_ransac_primitives;
-	uiCmdCmdId cmd_id_section;
-	uiCmdCmdId cmd_bpf_id;
-	uiCmdCmdId cmd_cpt_curv;
-	uiCmdCmdId cmd_save_point_cloud;
-	uiCmdCmdId cmd_taubin_smooth;
+
 	gui = new GuiInterface();
-	sectionGUI = new SectionGUI();
-	bpfGUI = new BestPlaneFitInterface();
 
 	ProMenubarmenuMenuAdd((char*)"Applications", const_cast<char*>("-PointCloud"), const_cast<char*>("-PointCloud"), NULL,
 		PRO_B_TRUE, const_cast<wchar_t*>(MSGFIL));
@@ -283,79 +137,6 @@ int user_initialize(
 		const_cast<char*>("-CreatePrimitives"), const_cast<char*>("-CreateRansacPrimitives"),
 		const_cast<char*>("-CreateRansacPrimitives"), const_cast<char*>("-CreateRansacPrimitivesHelp"),
 		const_cast<char*>("-CreateSOR"), PRO_B_TRUE, cmd_id_ransac_primitives, const_cast<wchar_t*>(MSGFIL));
-	
-	status = ProCmdActionAdd(const_cast<char*>("NormalsPCA"), (uiCmdCmdActFn)(computerNormalsWithPCA),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_id_normals_pca);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-NormalsPCA"),
-		const_cast<char*>("-NormalsPCA"), const_cast<char*>("-NormalsPCAHelp"),
-		const_cast<char*>("-CreatePrimitives"), PRO_B_TRUE, cmd_id_normals_pca, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("DeNoisePoints"), (uiCmdCmdActFn)(denoise_points),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_id_smooth_points);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-SmoothPoints"),
-		const_cast<char*>("-SmoothPoints"), const_cast<char*>("-SmoothPointsHelp"),
-		const_cast<char*>("-NormalsPCA"), PRO_B_TRUE, cmd_id_smooth_points, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("WLOPDeNoisePoints"), (uiCmdCmdActFn)(wlop_denoise_points),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_id_wlop_smooth_points);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-WLOPSmoothPoints"),
-		const_cast<char*>("-WLOPSmoothPoints"), const_cast<char*>("-WLOPSmoothPointsHelp"),
-		const_cast<char*>("-SmoothPoints"), PRO_B_TRUE, cmd_id_wlop_smooth_points, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("JETDeNoisePoints"), (uiCmdCmdActFn)(jet_denoise_points),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_id_jet_smooth_points);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-JETSmoothPoints"),
-		const_cast<char*>("-JETSmoothPoints"), const_cast<char*>("-JETSmoothPointsHelp"),
-		const_cast<char*>("-WLOPSmoothPoints"), PRO_B_TRUE, cmd_id_jet_smooth_points, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("ChooseSection"), (uiCmdCmdActFn)(SectionGUI::Activate),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_id_section);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-SectionUI"),
-		const_cast<char*>("-SectionUI"), const_cast<char*>("-SectionUIHelp"),
-		const_cast<char*>("-JETSmoothPoints"), PRO_B_TRUE, cmd_id_section, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("CreateBestFitPlane"), (uiCmdCmdActFn)(BestPlaneFitInterface::Activate),
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_bpf_id);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-BestFitPlane"),
-		const_cast<char*>("-BestFitPlane"), const_cast<char*>("-BestFitPlaneHelp"),
-		const_cast<char*>("-SectionUI"), PRO_B_TRUE, cmd_bpf_id, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("CalculateCurvatures"), (uiCmdCmdActFn)compute_curvatures,
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_cpt_curv);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-ComputeCurvatures"),
-		const_cast<char*>("-ComputeCurvatures"), const_cast<char*>("-ComputeCurvaturesHelp"),
-		const_cast<char*>("-BestFitPlane"), PRO_B_TRUE, cmd_cpt_curv, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("SavePointCloud"), (uiCmdCmdActFn)save_point_cloud,
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_save_point_cloud);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-SavePointCloud"),
-		const_cast<char*>("-SavePointCloud"), const_cast<char*>("-SavePointCloudHelp"),
-		const_cast<char*>("-ComputeCurvatures"), PRO_B_TRUE, cmd_save_point_cloud, const_cast<wchar_t*>(MSGFIL));
-
-	status = ProCmdActionAdd(const_cast<char*>("TaubinSmooth"), (uiCmdCmdActFn)TaubinDialog::Activate,
-		uiProe2ndImmediate, accessFunction, PRO_B_TRUE, PRO_B_TRUE, &cmd_taubin_smooth);
-
-	status = ProMenubarmenuPushbuttonAdd(
-		const_cast<char*>("-PointCloud"), const_cast<char*>("-TaubinSmooth"),
-		const_cast<char*>("-TaubinSmooth"), const_cast<char*>("-TaubinSmoothHelp"),
-		const_cast<char*>("-SavePointCloud"), PRO_B_TRUE, cmd_taubin_smooth, const_cast<wchar_t*>(MSGFIL));
-
 	return (0);
 }
 
@@ -366,6 +147,4 @@ int user_initialize(
 void user_terminate()
 {
 	delete gui;
-	delete bpfGUI;
-	delete sectionGUI;
 }

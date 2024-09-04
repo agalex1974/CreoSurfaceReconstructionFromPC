@@ -47,8 +47,6 @@ public:
 	static CPointEx3D VectorToPoint(const CVector<double>& pnt);
 	std::shared_ptr<CMatrix<double>> getSlippableVectors(const CPointEx3D& bc) const;
 	static void scaleToUnity(CVector<CPointEx3D>& points);
-	static std::pair<double, double> GetCurvaturesOfLocalPatch(const CPointEx3D& p, const CPointEx3D& n, const CPointCloud& pc,
-		CPointEx3D& maximumDirection, CPointEx3D& minimumDirection);
 	static CPointEx3D GetNormalizedPerpendicularVectorToVector(const CPointEx3D& inVector);
 	static std::tuple<double, double, double> PerformPCAOnPatch(const CPointEx3D& p, const CVector<CPointEx3D>& patch, CPointEx3D& normal);
 	static CDoubleMatrix CreateLocalCoordinateSystem(const CPointEx3D& o, const CPointEx3D& d, Axis axis);

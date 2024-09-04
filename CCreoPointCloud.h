@@ -29,7 +29,6 @@
 #include <ProUI.h>
 #include <ProUIDialog.h>
 #include <ProUIProgressbar.h>
-#include "CPatchOfPointCloud.h"
 
 /// <summary>
 // CGAL DEFINITIONS
@@ -77,7 +76,6 @@ public:
 	bool isEllipicGabrielNeighbor(int i, const std::vector<int>& NNs, double a) const;
 	std::vector<int> GabrielkNeighborhood(int i, int k, const std::vector<std::vector<int>>& EGG);
 	void calculateEGG(std::vector<std::vector<int>>& EGG, double ratio = 0.65) const;
-	void ComputeNormalsWithPCA(bool use_existing_orientation = false);
 	std::shared_ptr<CCreoPointCloud> SmoothPointCloud();
 	void SmoothPointCloudCGALBilateral();
 	std::shared_ptr<CCreoPointCloud> sampleUniformly();
@@ -108,15 +106,13 @@ private:
 	void updateSpatialTree();
 	void regenerateFeature();
 	using constString = const char* const;
-	using patchMap = std::shared_ptr<map<int, std::shared_ptr<CPatchOfPointCloud>>>;
+	//using patchMap = std::shared_ptr<map<int, std::shared_ptr<CPatchOfPointCloud>>>;
 	using pPairPatchQueue = std::shared_ptr<pair_patch_queue>;
 	// Declare user interface constants to tie them with retrieving the
 	static constexpr constString UI_GUI_PROGRESS_NAME = "progress";
 	static constexpr constString UI_PROGRESS_BAR = "ProgressBar";
 	static void showProgressBar(const char* title, double& progress);
-	patchMap createPatchMap() const;
-	pPairPatchQueue CreateInitialQueue(patchMap pMap, int k, double tolerance) const;
-	bool patchesAreNeighboors(std::shared_ptr<CPatchOfPointCloud> patch1, std::shared_ptr<CPatchOfPointCloud> patch2) const;
+	
 	double GetBilateralFactor(const CPointEx3D& p, const CPointEx3D& n, const CPointCloud& patch) const;
 	double GetMedianFactor(const CPointEx3D& p, const CPointEx3D& n, const CPointCloud& patch) const;
 	double meanDistance;

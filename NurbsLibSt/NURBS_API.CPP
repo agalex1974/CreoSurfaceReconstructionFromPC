@@ -2982,8 +2982,8 @@ BOOL CPlane::InitBestFit(const CPointEx3DVector& data)
 	CPointEx3D plane_normal;
 	BOOL bSuccess = FALSE;
 	// compute smallest eigenvalue/vector
-	bSuccess = LIN_SYS_MKL::ComputeSmallestEigenVector(SIGMA, plane_normal);
-	//bSuccess = LIN_SYS_EIGEN::ComputeSmallestEigenVector(SIGMA, plane_normal);
+	//bSuccess = LIN_SYS_MKL::ComputeSmallestEigenVector(SIGMA, plane_normal);
+	bSuccess = LIN_SYS_EIGEN::ComputeSmallestEigenVector(SIGMA, plane_normal);
 
 	if (bSuccess)
 		return InitPointNormal(x, plane_normal);

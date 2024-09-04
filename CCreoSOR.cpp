@@ -353,16 +353,3 @@ CMatrix<double> CCreoSOR::getTransformationMatrix(CPointEx3D vecFrom, CPointEx3D
 	R = Term;
 	return R;
 }
-
-void CCreoSOR::AugmentPointCloud(std::shared_ptr<const CCreoPointCloud>& creoPointCloud, spPointCloud pointCloudToAugment, std::set<int>& indexSet)
-{
-	auto bc = creoPointCloud->FindBaryCenter();
-	auto slippableMatrixSelection = pointCloudToAugment->getSlippableVectors(bc);
-	if (slippableMatrixSelection)
-	{
-		for (int i = 0; pointCloudToAugment->GetSize(); i++)
-		{
-			//creoPointCloud->GetKNearestNeighborIndex()
-		}
-	}
-}
