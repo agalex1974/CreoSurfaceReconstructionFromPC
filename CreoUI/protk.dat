@@ -1,4 +1,4 @@
-name Pareametric_Design
+name Parametric_Design
 startup dll
 exec_file D:\repo\CreoSurfaceReconstructionFromPC\CreoUI\CreoSurfaceReconstructionFromPC.dll
 text_dir D:\repo\CreoSurfaceReconstructionFromPC\CreoUI
