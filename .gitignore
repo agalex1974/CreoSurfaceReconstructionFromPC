@@ -24,9 +24,10 @@ mono_crash.*
 x64/
 x86/	
 !boost_1_79_0/boost/predef/architecture/x86	
+
 [Ww][Ii][Nn]32/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
+![Aa][Rr][Mm]/
+![Aa][Rr][Mm]64/
 bld/
 [Bb]in/
 [Oo]bj/
