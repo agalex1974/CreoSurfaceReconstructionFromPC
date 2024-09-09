@@ -11,7 +11,8 @@ The protk.dat file in the folder CreoUI contains the information for the plugin 
  1. Execute Creo Parametric
  2. Go to File->Options->Options->Environment->Working directory->Browse... and open the directory where CreoUI is, see image below. Make sure the protk.dat is in this directory.
  3. Press ok.
- ![Selecting Working Directory](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/8.jpg?raw=true)
+
+![Selecting Working Directory](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/8.jpg?raw=true)
 <br>
 After following the above steps you should be able to run the plugin in Creo Parametric. To do so open a part session in it and go to the **Tools** tab click on **Auxiliary Applications** and select the protk.dat file in the folder the plugin was created like in the image below:<br>
 ![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/6.jpg?raw=true)
