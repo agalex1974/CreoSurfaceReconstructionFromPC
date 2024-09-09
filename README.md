@@ -6,7 +6,8 @@ This is a self contained Visual Studio Project that builds the plugin using the 
 After setting this environment variable the code should be able to compile and build in Visual Studio by selecting the ReleaseOpenMP option in the build settings. <br>
 The plugin is built in the directory **CreoUI** so the directory should look like in the image below. The DLL built shoud be **CreoSurfaceReconstructionFromPC.dll**:<br>
 ## Most proper way to proceed
-The protk.dat file in the folder CreoUI contains the information for the plugin to load and follpwing these steps does not need to change.<br>
+The protk.dat file in the folder CreoUI contains the information for the plugin to load.<br>
+The follpwing steps need to be followed for the plugin to exectute:<br>
 
  1. Execute Creo Parametric
  2. Go to File->Options->Options->Environment->Working directory->Browse... and open the directory where CreoUI is, see image below. Make sure the protk.dat is in this directory.
