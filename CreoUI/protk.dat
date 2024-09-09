@@ -1,7 +1,7 @@
 name Parametric_Design
 startup dll
-exec_file D:\repo\CreoSurfaceReconstructionFromPC\CreoUI\CreoSurfaceReconstructionFromPC.dll
-text_dir D:\repo\CreoSurfaceReconstructionFromPC\CreoUI
+exec_file .\CreoSurfaceReconstructionFromPC.dll
+text_dir .\
 allow_stop true
 delay_start false
 end
