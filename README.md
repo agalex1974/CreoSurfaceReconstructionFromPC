@@ -20,5 +20,5 @@ The follpwing steps need to be followed for the plugin to exectute:<br>
 After following the above steps you should be able to run the plugin in Creo Parametric. To do so open a part session in it and go to the **Tools** tab, click on **Auxiliary Applications** and select the protk.dat file in the folder the plugin was created like in the image below:<br><br>
 ![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/6.jpg?raw=true)
 <br><br>
-After you open the plugin you need to press start and provided you followed all steps correctly the plugin should be in the state running. Then on the right a button tools should appear. By pressing on it you can run the application like in the image below:<br>
+After you open the plugin you need to press start and provided you followed all steps correctly the plugin should be in the state running. Then on the right a button tools should appear. By pressing on it you can run the application like in the image below:<br><br>
 ![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/7.jpg?raw=true)
