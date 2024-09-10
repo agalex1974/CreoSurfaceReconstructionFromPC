@@ -21,4 +21,8 @@ After following the above steps you should be able to run the plugin in Creo Par
 ![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/6.jpg?raw=true)
 <br><br>
 After you open the plugin you need to press start and provided you followed all steps correctly the plugin should be in the state running. Then on the right a button tools should appear. By pressing on it you can run the application like in the image below:<br><br>
-![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/7.jpg?raw=true)
+![enter image description here](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/7.jpg?raw=true)<br><br>
+Please watch the video below on how to use the plugin:<br><br>
+[![Watch the video](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/sor.jpg?raw=true)](https://youtu.be/2iVubCjAmTw)
+
+
