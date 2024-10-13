@@ -1,6 +1,5 @@
 ## Parametric Surface Reconsctruction from Point Cloud using Creo Toolkit (Creo Parametric)
-Work in Progress for paper submission: **Feature Reconstruction Methods in Point Clouds with Applications in Creo Parametric**.<br>
-***All rights reserved to Alexander Agathos, Sofia Kyratzi and Philip Azariadis***.<br>
+![image](https://github.com/user-attachments/assets/bba06439-373c-426e-9125-859252d27ccb)<br><br>
 This is a self contained Visual Studio Project that builds the plugin using the libraries needed. The only thing needed is to set in the environment variables the Creo Toolkit Path in the variable *PROTOOL_SRC*. Usually this path is in the directory C:\Program Files\PTC\. For example,  see the image below:<br><br>
 ![Environmental Variable](https://github.com/agalex1974/CreoSurfaceReconstructionFromPC/blob/main/ReadMeImages/2.jpg?raw=true)<br><br>
 After setting this environment variable the code should be able to compile and build in Visual Studio by selecting the ReleaseOpenMP option in the build settings. <br>
